@@ -7,3 +7,4 @@ services:
     volumes:
       - .:/local/videojs-cors
       - ./nginx/etc/nginx/conf.d/example.com.conf:/etc/nginx/conf.d/example.com.conf
+      - ./nginx/etc/nginx/conf.d/cdn.example.com.conf:/etc/nginx/conf.d/cdn.example.com.conf
