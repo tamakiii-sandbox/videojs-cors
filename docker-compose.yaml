@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:1.21.1
+    volumes:
+      - .:/local/videojs-cors
+      - ./nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
