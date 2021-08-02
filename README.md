@@ -1,5 +1,9 @@
 # videojs-cors
 
+## TODO
+* https-portal
+* using video.js
+
 ## How to use
 ```sh
 make setup
