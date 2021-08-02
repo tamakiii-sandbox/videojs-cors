@@ -2,6 +2,8 @@ version: "3.8"
 services:
   nginx:
     image: nginx:1.21.1
+    ports:
+      - ${PORT_NGINX:-8000}:80
     volumes:
       - .:/local/videojs-cors
       - ./nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
