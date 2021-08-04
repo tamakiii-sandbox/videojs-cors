@@ -1,6 +1,7 @@
 .PHONY: help setup check clean
 
-PORT_NGINX := 8000
+PORT_HTTP := 80
+PORT_HTTPS := 443
 
 help:
 	@cat $(firstword $(MAKEFILE_LIST))
@@ -13,7 +14,8 @@ setup: \
 	.env
 
 .env:
-	echo "PORT_NGINX=$(PORT_NGINX)" > $@
+	echo "PORT_HTTP=$(PORT_HTTP)" > $@
+	echo "PORT_HTTPS=$(PORT_HTTPS)" >> $@
 
 clean:
 	rm -f .env
