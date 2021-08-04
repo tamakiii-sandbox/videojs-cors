@@ -6,8 +6,8 @@ help:
 	@cat $(firstword $(MAKEFILE_LIST))
 
 check:
-	egrep --color '127.0.0.1\s+example.com' /etc/hosts
-	egrep --color '127.0.0.1\s+cdn.example.com' /etc/hosts
+	egrep '127.0.0.1\s+example.com' /etc/hosts > /dev/null
+	egrep '127.0.0.1\s+cdn.example.com' /etc/hosts > /dev/null
 
 setup: \
 	.env
