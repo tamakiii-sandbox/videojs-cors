@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:1.21.1
+    # ports:
+    #   - ${PORT_NGINX:-8000}:80
+    volumes:
+      - .:/local/videojs-cors
+      - ./nginx/etc/nginx/conf.d/example.com.conf:/etc/nginx/conf.d/example.com.conf
+      - ./nginx/etc/nginx/conf.d/cdn.example.com.conf:/etc/nginx/conf.d/cdn.example.com.conf
+
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - ${PORT_HTTP:-80}:80
+      - ${PORT_HTTPS:-443}:443
+    environment:
+      STAGE: 'local'
+      DOMAINS: 'example.com -> http://nginx:80, cdn.example.com -> http://nginx:80'
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+
+volumes:
+    https-portal-data:
